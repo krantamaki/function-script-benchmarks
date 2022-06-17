@@ -5,16 +5,16 @@ global scope at compile time and thus resorts to storing them inside a dictionar
 know the number of variables that exists in the local scope of a function at compile time and hence can store them
 in an array. Understandably accessing these variables from an array is somewhat faster than from a dictionary.
 ## Implementation
-Benchmark test is counting all of the prime numbers up to some number n. This is accomplished with the use of the
+Benchmark test is finding all of the prime numbers up to some number n. This is accomplished with the use of the
 sieve of Erastosthenes (https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Pseudocode). The runtime is measured using 
 Pythons builtin timeit library and averaged over multiple iterations.
 ## Results
-I ran the benchmarks on my personal computer with Ryzen 5 5600G CPU. When the task was to calculate all of the 
+I ran the benchmarks on my personal computer with Ryzen 5 5600G CPU. When the task was to find all of the 
 prime numbers up to 10 000, the time difference was sub 1%, with code wrapped in a function being faster. This is
 very minor difference and there are most likely 2 reasons for it. 1) the runtime was so short that getting accurate
 benchmarks was somewhat challenging. 2) the number of iterations done by the code was so small that the overhead of
 actually calling the function mitigated the difference between the access times of dictionary and an array. However,
-when the task was to calculate all the prime numbers up to 1 000 000 the runtimes really started to diverge. The difference
+when the task was to find all the prime numbers up to 1 000 000 the runtimes really started to diverge. The difference
 at this test was around 25%, with the code wrapped in a function being faster. Also as the average runtime was staring to get
 pretty long (over 0.1s for both script and function wrapped script) the benchmark accuracy should be relatively decent.
 ## Conclusion
